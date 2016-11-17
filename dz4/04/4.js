@@ -19,5 +19,15 @@ var scanDOM = function(){
 	}
 
 	console.log(tstat);
+	console.log('-------------');
+	console.log('Статистика по тэгам:');
+
+	for(let itemU of tstat){
+		let i = 0;
+		for(let item of tags){
+			if(itemU == item.tagName) i++;
+		}
+		console.log(itemU, i);
+	}
 
 }
