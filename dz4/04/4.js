@@ -1,7 +1,8 @@
+var tn = 0;
+
 var scanDOM = function(){
 	var page = document.getElementsByTagName('body'),	// элемент body
 		tags = page[0].getElementsByTagName('*'),		// все тэги
-		all = page[0].childNodes,						// все узлы
 		tstat = [];										// массив для статистики
 
 	// проходим по всем тэгам
@@ -32,10 +33,15 @@ var scanDOM = function(){
 	}
 
 	// подсчёт текстовых узлов
-	var tn = 0;
+	textNodesCount(page[0]);
+	console.log('Текстовых узлов:', tn);
+	//console.log(all);
+}
+
+var textNodesCount = function(block){
+	var all = block.childNodes;	// все узлы элемента на уровне корня
 	for(let a of all){
 		if(a.nodeType == 3) tn++;
+		else if(a.nodeType == 1) textNodesCount(a);
 	}
-	console.log('Текстовых узлов:', tn);
-	console.log(all);
 }
