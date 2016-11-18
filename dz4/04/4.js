@@ -1,7 +1,8 @@
 var scanDOM = function(){
-	var page = document.getElementsByTagName('body'),
-		tags = page[0].getElementsByTagName('*'),
-		tstat = [];
+	var page = document.getElementsByTagName('body'),	// элемент body
+		tags = page[0].getElementsByTagName('*'),		// все тэги
+		all = page[0].childNodes,						// все узлы
+		tstat = [];										// массив для статистики
 
 	// проходим по всем тэгам
 	for(let i=0; i<tags.length; i++){
@@ -27,7 +28,14 @@ var scanDOM = function(){
 		for(let item of tags){
 			if(itemU == item.tagName) i++;
 		}
-		console.log(itemU, i);
+		console.log('Тэгов', itemU, i);
 	}
 
+	// подсчёт текстовых узлов
+	var tn = 0;
+	for(let a of all){
+		if(a.nodeType == 3) tn++;
+	}
+	console.log('Текстовых узлов:', tn);
+	console.log(all);
 }
