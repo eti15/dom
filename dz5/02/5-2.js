@@ -2,6 +2,7 @@ var listenToMe = function(bu){
 	var knopa = document.getElementById(bu);
 
 	knopa.addEventListener('click', tvorenie);
+	telo.addEventListener('mousedown', moveIt);
 }
 
 var tvorenie = function(){
@@ -26,5 +27,27 @@ var tvorenie = function(){
 	div1.style.width = x2 + 'px';
 	div1.style.height = y2 + 'px';
 	div1.style.backgroundColor = 'rgb(' + c1 + ',' + c2 + ',' + c3 + ')';
-	//console.log(div1);
+}
+
+var moveIt = function(e){
+	if(e.target.tagName == 'BUTTON') return;
+	var div2 = e.target;
+	div2.style.zIndex = 2;
+
+	var moveAt = function(div, e) {
+    div.style.left = e.pageX - div.offsetWidth / 2 + 'px';
+    div.style.top = e.pageY - div.offsetHeight / 2 + 'px';
+	}
+
+	moveAt(div2, e);
+
+	var handler1 = function(e){ moveAt(div2, e); };
+	var handler2 = function(){
+		div2.removeEventListener('mousemove', handler1);
+		div2.removeEventListener('mouseup', handler2);
+	};
+
+	div2.addEventListener('mousemove', handler1);
+	div2.addEventListener('mouseup', handler2);
+
 }
