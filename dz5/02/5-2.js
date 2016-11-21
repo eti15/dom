@@ -3,6 +3,7 @@ var listenToMe = function(bu){
 
 	knopa.addEventListener('click', tvorenie);
 	telo.addEventListener('mousedown', moveIt);
+	document.ondragstart = function() {return false;};
 }
 
 var tvorenie = function(){
@@ -13,10 +14,10 @@ var tvorenie = function(){
 
 	telo.appendChild(div1);
 
-	var x1 = Math.floor(Math.random() * (max - 99 - min)) + min,
-		x2 = Math.floor(Math.random() * (max - min + 101)) + min,
-		y1 = Math.floor(Math.random() * (max2 - 99 - min)) + min,
-		y2 = Math.floor(Math.random() * (max2 - min + 101)) + min,
+	var x1 = Math.floor(Math.random() * (max - 299 - min)) + min,
+		x2 = Math.floor(Math.random() * 251) + 50,
+		y1 = Math.floor(Math.random() * (max2 - 349 - min)) + min,
+		y2 = Math.floor(Math.random() * 201) + 50,
 		c1 = Math.floor(Math.random() * (256)),
 		c2 = Math.floor(Math.random() * (256)),
 		c3 = Math.floor(Math.random() * (256));
@@ -45,9 +46,11 @@ var moveIt = function(e){
 	var handler2 = function(){
 		div2.removeEventListener('mousemove', handler1);
 		div2.removeEventListener('mouseup', handler2);
+		div2.removeEventListener('mouseover', handler2);
+		div2.style.zIndex = 1;
 	};
 
 	div2.addEventListener('mousemove', handler1);
 	div2.addEventListener('mouseup', handler2);
-
+	div2.addEventListener('mouseover', handler2);
 }
