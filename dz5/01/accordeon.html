@@ -12,7 +12,7 @@
         .c2 {background: #e7e7e7; color: #4f4f4f;}
         #aon div {-webkit-border-radius: 23px; -moz-border-radius: 23px; border-radius: 23px;}
         #aon > div {background: #e7e7e7; margin-bottom: 5px;}
-        #aon div .title div {padding: 15px 25px; cursor: pointer;
+        #aon div .title div {padding: 15px 25px; cursor: pointer; user-select: none;
         background: transparent url(arrow1.png) no-repeat 424px 19px;}
         #aon div .sub {display: none; padding: 7px 0;}
         #aon div .sub div {padding: 7px 25px;}
@@ -21,22 +21,6 @@
         .text {display: block !important;}
     </style>
     <script src="5-1.js"></script>
-    <script>
-    /*    var bgcolor;
-        function otkroj(id,eto) {
-            var dis = document.getElementById(id).style.display;
-            if (dis == "none" || !dis){
-                document.getElementById(id).style.display = "block";
-                eto.style.backgroundColor = "#ff8663";
-                eto.style.backgroundImage = "url(arrow2.png)";
-            }
-            else {
-                document.getElementById(id).style.display = "none";
-                eto.style.backgroundColor = "transparent";
-                eto.style.backgroundImage = "url(arrow1.png)";
-            }
-        }*/
-    </script>
 </head>
 <body>
 
@@ -99,7 +83,8 @@
 </div>
 
 <script type="text/javascript">
-    var aon = document.getElementById('aon');
+    var aon = document.getElementById('aon'),
+        current = null;
     aon.addEventListener('click', opendiv);
 
 </script>
