@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Аккордеон</title>
+    <style>
+        body {background: #fff;}
+        #main {width: 460px; margin: 130px auto 0;}
+        #logo {margin-bottom: 23px; text-align: center;}
+        #aon {font-size: 15px;}
+        .c1 {background: #696666; color: #fff;}
+        .c2 {background: #e7e7e7; color: #4f4f4f;}
+        #aon div {-webkit-border-radius: 23px; -moz-border-radius: 23px; border-radius: 23px;}
+        #aon > div {background: #e7e7e7; margin-bottom: 5px;}
+        #aon div .title div {padding: 15px 25px; cursor: pointer;
+        background: transparent url(arrow1.png) no-repeat 424px 19px;}
+        #aon div .sub {display: none; padding: 7px 0;}
+        #aon div .sub div {padding: 7px 25px;}
+    </style>
+    <script>
+        var bgcolor;
+        function otkroj(id,eto) {
+            var dis = document.getElementById(id).style.display;
+            if (dis == "none" || !dis){
+                document.getElementById(id).style.display = "block";
+                eto.style.backgroundColor = "#ff8663";
+                eto.style.backgroundImage = "url(arrow2.png)";
+            }
+            else {
+                document.getElementById(id).style.display = "none";
+                eto.style.backgroundColor = "transparent";
+                eto.style.backgroundImage = "url(arrow1.png)";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="main">
+    <div id="logo">
+        <img src="logo.png">
+    </div>
+    <div id="aon">
+        <div>
+            <div class="title c1">
+                <div onclick="otkroj('sub1',this)">Основы языка и как на нём говорить правильно</div>
+            </div>
+            <div id="sub1" class="sub">
+                <div>Лексическая структура</div>
+                <div>Типы данных, значения и переменные</div>
+                <div>Выражения и операторы инструкции</div>
+            </div>
+        </div>
+        <div>
+            <div class="title c2">
+                <div onclick="otkroj('sub2',this)">Функции</div>
+            </div>
+            <div id="sub2" class="sub">
+                <div>Лексическая структура</div>
+                <div>Типы данных, значения и переменные</div>
+                <div>Выражения и операторы инструкции</div>
+            </div>
+        </div>
+        <div>
+            <div class="title c1">
+                <div onclick="otkroj('sub3',this)">Обработка ошибок и отладка</div>
+            </div>
+            <div id="sub3" class="sub">
+                <div>Лексическая структура</div>
+                <div>Типы данных, значения и переменные</div>
+                <div>Выражения и операторы инструкции</div>
+            </div>
+        </div>
+        <div>
+            <div class="title c2">
+                <div onclick="otkroj('sub4',this)">Объекты и массивы</div>
+            </div>
+            <div id="sub4" class="sub">
+                <div>Лексическая структура</div>
+                <div>Типы данных, значения и переменные</div>
+                <div>Выражения и операторы инструкции</div>
+            </div>
+        </div>
+        <div>
+            <div class="title c1">
+                <div onclick="otkroj('sub5',this)">События</div>
+            </div>
+            <div id="sub5" class="sub">
+                <div>Лексическая структура</div>
+                <div>Типы данных, значения и переменные</div>
+                <div>Выражения и операторы инструкции</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
