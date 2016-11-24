@@ -1,3 +1,6 @@
+var aon = document.getElementById('aon'),
+    current = null;
+
 var opendiv = function(e){
 	var titlediv = e.target.parentNode;
 	if(!titlediv.classList.contains('title')) return;
@@ -16,3 +19,5 @@ var opendiv = function(e){
 		current.nextElementSibling.classList.toggle('text');
 	}
 }
+
+aon.addEventListener('click', opendiv);
