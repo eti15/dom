@@ -7,7 +7,7 @@ var getCities = function(url){
 		xhr.open('GET', url);
 		xhr.send();
 		xhr.addEventListener('load', function(){
-			resolve(xhr);
+			resolve(xhr.response);
 		});
 		xhr.addEventListener('error', function(){
 			reject();
@@ -19,6 +19,11 @@ p = getCities('https://raw.githubusercontent.com/smelukov/citiesTest/master/citi
 
 p.then(
 	function(result){
-		console.log(result);
+		cities = JSON.parse(result);	// ответ сервера переводим в массив объектов
+		for(let i=0; i<cities.length; i++){
+			cities[i] = cities[i].name;
+			console.log(cities[i]);
+		}
+		//console.log(cities);
 	}
 );
