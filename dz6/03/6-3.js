@@ -28,13 +28,17 @@ window.addEventListener('load', function(){
 	);
 
 	txt_in = document.getElementById('txt_in');
+	hint = document.getElementById('hint');
 	txt_in.addEventListener('input',function(){
-		console.log(cities);
+		hint.innerHTML = '';
+		if(!txt_in.value) return;
+		for(let i=0; i<cities.length; i++){
+			if(cities[i].indexOf(txt_in.value)<0) continue;
+			else {
+				let div = document.createElement('div');
+				div.textContent = cities[i];
+				hint.appendChild(div);
+			}
+		}
 	});
 });
-
-		/*for(let i=0; i<cities.length; i++){	// помещаем города в элементы списка
-			let li = document.createElement('li');
-			li.textContent = cities[i];
-			list.appendChild(li);
-		}*/
