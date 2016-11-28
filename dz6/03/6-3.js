@@ -33,7 +33,7 @@ window.addEventListener('load', function(){
 		hint.innerHTML = '';
 		if(!txt_in.value) return;
 		for(let i=0; i<cities.length; i++){
-			if(cities[i].indexOf(txt_in.value)<0) continue;
+			if(cities[i].toLowerCase().indexOf(txt_in.value.toLowerCase())<0) continue;
 			else {
 				let div = document.createElement('div');
 				div.textContent = cities[i];
