@@ -54,13 +54,18 @@ cootab.addEventListener('click', cooDel);
 var ins = document.querySelectorAll('#cooadd input');
 
 var cooAdd = function(e){
-	for(let a =0; a<3; a++){
-		console.log(ins[a].value);
+	for(let a=0; a<3; a++){
 		if(!ins[a].value){
 			alert('Заполните все поля формы');
 			return;
 		}
 	}
+	let today = new Date(), lastDay;
+	let exp = ins[2].value * 24 * 60 * 60 * 1000;
+	lastDay = today.setMilliseconds(exp);
+	today.setTime(lastDay);
+	let newCoo = ins[0].value + '=' + ins[1].value + ';' + 'expires=' + today;
+	console.log(newCoo);
 }
 
 var addButton = document.getElementById('addButton');
