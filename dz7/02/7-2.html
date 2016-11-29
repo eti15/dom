@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>DZ7_2</title>
     <style type="text/css">
-    	#cootab {border-collapse: collapse;}
+    	#cootab {border-collapse: collapse; margin-bottom: 40px;}
     	#cootab th, #cootab td {border: 1px solid #555; padding: 5px;}
     	#cootab .row1 {background: #ddd;}
+        #cooadd div {float: left; padding-right: 10px; font-size: 13px;}
     </style>
 </head>
 <body>
@@ -19,6 +20,14 @@
 		<th>Операция</th>
 	</tr>
 </table>
+
+<p>Добавить новую куку</p>
+<form id="cooadd">
+    <div>Имя:<br><input type="text" name="name"></div>
+    <div>Значение:<br><input type="text" name="value"></div>
+    <div>Срок годности (дней):<br><input type="text" name="expire"></div>
+    <div><br><input type="button" name="add" value="Добавить" id="addButton"></div>
+</form>
 
 <script src="7-2.js" type="text/javascript"></script>
 

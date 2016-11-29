@@ -50,3 +50,18 @@ var cooDel = function(e){
 }
 
 cootab.addEventListener('click', cooDel);
+
+var ins = document.querySelectorAll('#cooadd input');
+
+var cooAdd = function(e){
+	for(let a =0; a<3; a++){
+		console.log(ins[a].value);
+		if(!ins[a].value){
+			alert('Заполните все поля формы');
+			return;
+		}
+	}
+}
+
+var addButton = document.getElementById('addButton');
+addButton.addEventListener('click', cooAdd);
