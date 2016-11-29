@@ -16,7 +16,7 @@ carr = cookies.split('; ');	// 1-мерный массив с куками
 
 var cootab = document.getElementById('cootab');
 
-for(let i=0; i<carr.length; i++){
+for(var i=0; i<carr.length; i++){
 	let newTr = document.createElement('tr');
 	carr[i] = carr[i].split('=');	// 2-мерный массив с куками
 	for(let j=0; j<3; j++){
@@ -66,6 +66,23 @@ var cooAdd = function(e){
 	today.setTime(lastDay);
 	let newCoo = ins[0].value + '=' + ins[1].value + ';' + 'expires=' + today;
 	console.log(newCoo);
+	document.cookie = newCoo;
+
+	let newTr = document.createElement('tr');
+	for(let j=0; j<3; j++){
+		let newTd = document.createElement('td');
+		if(j!=2) newTd.textContent = ins[j].value;
+		else {
+			let newBut = document.createElement('button');
+			newBut.textContent = "Удалить";
+			newBut.setAttribute('number', i);
+			newTd.appendChild(newBut);
+		}
+		ins[j].value = '';
+		newTr.appendChild(newTd);
+	}
+	newTr.id = 'i' + i++;
+	cootab.appendChild(newTr);
 }
 
 var addButton = document.getElementById('addButton');
