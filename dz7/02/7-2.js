@@ -64,8 +64,11 @@ var cooAdd = function(e){
 	let exp = ins[2].value * 24 * 60 * 60 * 1000;
 	//lastDay = today.setMilliseconds(exp);
 	//today.setTime(lastDay);
+	
 	let srok = today.getTime() + exp;
-	today.setTime(srok);
+	//today.setTime(srok);
+	today = new Date(srok).toUTCString();
+
 	let newCoo = ins[0].value + '=' + ins[1].value + ';' + 'expires=' + today;
 	console.log(newCoo);
 	document.cookie = newCoo;
