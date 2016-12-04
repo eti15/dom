@@ -1,7 +1,10 @@
 var citiesObj = [],	// массив городов в виде объектов
 	cities = [],	// массив городов в виде строк
 	p,	// промис
-	txt_in;	// input
+	hint,	// блок с городами
+	txt_in,	// input
+	shab,	// шаблон Handlebars
+	shabFun;	// функция-компилятор Handlebars
 
 var getCities = function(url){
 	return new Promise(function(resolve, reject){
@@ -20,6 +23,8 @@ var getCities = function(url){
 window.addEventListener('load', function(){
 	txt_in = document.getElementById('txt_in');
 	hint = document.getElementById('hint');
+	shab = document.getElementById('shab');
+	shabFun = Handlebars.compile(shab.innerHTML);
 
 	p = getCities('https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json');
 
@@ -33,11 +38,22 @@ window.addEventListener('load', function(){
 			for(let i=0; i<cities.length; i++) citiesObj[i].name = cities[i]; 
 
 			// вывод городов при помощи шаблонизатора Handlebars
-			var shab = document.getElementById('shab');
-			var shabFun = Handlebars.compile(shab.innerHTML);
 			hint.innerHTML = shabFun({list: citiesObj});
 		}
 	);
+
+	// хэндлер для вывода городов шаблоном Handlebars
+	var handlerHB = function(){
+		hint.innerHTML = '';
+		citiesObj = [];
+		for(let i=0, j=0; i<cities.length; i++){
+			if(cities[i].toLowerCase().indexOf(txt_in.value.toLowerCase())>=0 || !txt_in.value){
+				citiesObj[j] = {};
+				citiesObj[j++].name = cities[i];
+			}
+		}
+		hint.innerHTML = shabFun({list: citiesObj});
+	}
 
 	var handler = function(){
 		hint.innerHTML = '';
@@ -49,5 +65,5 @@ window.addEventListener('load', function(){
 			}
 		}
 	}
-	txt_in.addEventListener('input', handler);
+	txt_in.addEventListener('input', handlerHB);
 });
