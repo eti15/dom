@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ8_1</title>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars.min-latest.js"></script>
+    <style type="text/css">
+    	#container {width: 200px;}
+    	#container input, #container #hint {width: 100%;}
+    	#container #hint {background: #eee;}
+    	.t1 {font-size: 17px;}
+    	.t2 {font-size: 12px; color: #777;}
+    </style>
+</head>
+<body>
+
+<div id="container">
+<div class="t1">Введите имя города:</div>
+<input type="text" id="txt_in">
+<div id="hint"></div>
+</div>
+
+<script id="shab" type="text/x-handlebars-template">
+	{{#each list}}
+		<div>{{name}}</div>
+	{{/each}}
+</script>
+
+<script src="8-1.js" type="text/javascript"></script>
+
+</body>
+</html>
