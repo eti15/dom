@@ -1,4 +1,8 @@
-var headerInfo = document.getElementById('headerInfo');
+var headerInfo = document.getElementById('headerInfo'),
+	trList = document.getElementById('trList'),
+	shab,
+	shabFun;	// функция-компилятор Handlebars
+
 
 new Promise(function(resolve) {
   if (document.readyState === 'complete') {
@@ -6,7 +10,10 @@ new Promise(function(resolve) {
   } else {
     window.onload = resolve;
   }
-}).then(function() {	// инициализация приложения
+}).then(function() {
+  shab = document.getElementById('shab');
+  shabFun = Handlebars.compile(shab.innerHTML);
+  // инициализация приложения
   return new Promise(function(resolve, reject) {
     VK.init({
       apiId: 5763917
@@ -34,12 +41,12 @@ new Promise(function(resolve) {
   })
 }).then(function() {
   return new Promise(function(resolve, reject) {
-    VK.api('friends.get', {'fields': 'bdate, photo_50'}, function(response) {
+    VK.api('friends.get', {'fields': 'bdate, photo_50, age'}, function(response) {
       if (response.error) {
         reject(new Error(response.error.error_msg));
       } else {
-        console.log('опа');
-
+        console.log(response.response[0]);
+        trList.innerHTML = shabFun({list: response.response});
         resolve();
       }
     });

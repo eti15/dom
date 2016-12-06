@@ -22,14 +22,17 @@
 		<th>Возраст</th>
 		<th>Дата рождения</th>
 	</tr>
+	<tbody id="trList">
+		
+	</tbody>
 </table>
 
 <script id="shab" type="text/x-handlebars-template">
 	{{#each list}}
 	<tr>
-		<td>{{photo_50}}</td>
+		<td><img src="{{photo_50}}"></td>
 		<td>{{first_name}} {{last_name}}</td>
-		<td>{{age}}</td>
+		<td></td>
 		<td>{{bdate}}</td>
 	</tr>
 	{{/each}}
