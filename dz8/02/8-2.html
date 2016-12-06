@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ8_2</title>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars.min-latest.js"></script>
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+    <style type="text/css">
+    	#headerInfo {font-size: 25px;}
+    	#friends-tab {border-collapse: collapse;}
+    	#friends-tab td, #friends-tab th {border: 1px solid #777;}
+    	#friends-tab th {background: #ccc; text-align: center; padding: 3px 10px;}
+    </style>
+</head>
+<body>
+<h1 id="headerInfo"></h1>
+
+<table id="friends-tab">
+	<tr>
+		<th>Фото</th>
+		<th>Фио</th>
+		<th>Возраст</th>
+		<th>Дата рождения</th>
+	</tr>
+</table>
+
+<script id="shab" type="text/x-handlebars-template">
+	{{#each list}}
+	<tr>
+		<td>{{photo_50}}</td>
+		<td>{{first_name}} {{last_name}}</td>
+		<td>{{age}}</td>
+		<td>{{bdate}}</td>
+	</tr>
+	{{/each}}
+</script>
+
+<script src="8-2.js" type="text/javascript"></script>
+
+</body>
+</html>
