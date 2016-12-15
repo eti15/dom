@@ -21,7 +21,10 @@ calculator.prototype.div = function(){
 };
 
 
-var SqrCalc = function(firstNumber){ this.firstNumber = firstNumber; }
+var SqrCalc = function(firstNumber){
+    this.firstNumber = firstNumber;
+    //this.sum = function(){ return Math.pow(super.sum.apply(SqrCalc,arguments), 2);}
+}
 
 // наследование (ES5)
 /*var inherit = function(child, parent){
@@ -38,6 +41,28 @@ function inherit(child, parent){
 inherit(SqrCalc, calculator);
 
 var myCalculator = new SqrCalc(100);
+
+// super не работает (Uncaught SyntaxError: 'super' keyword unexpected here)
+// myCalculator.sum = function(){ return Math.pow(super.sum.apply(this,arguments), 2);}
+
+// стрелочная функция не работает (Uncaught TypeError: Cannot read property 'apply' of undefined)
+// myCalculator.sum = () => Math.pow(this.__proto__.sum.apply(this,arguments), 2);
+
+myCalculator.sum = function(){
+    return Math.pow(this.__proto__.sum.apply(this,arguments), 2);
+}
+
+myCalculator.dif = function(){
+    return Math.pow(this.__proto__.dif.apply(this,arguments), 2);
+}
+
+myCalculator.mul = function(){
+    return Math.pow(this.__proto__.mul.apply(this,arguments), 2);
+}
+
+myCalculator.div = function(){
+    return Math.pow(this.__proto__.div.apply(this,arguments), 2);
+}
 
 console.log(myCalculator.sum(1, 2, 3)); // 1, 2, 3 - вернет 106
 console.log(myCalculator.dif(10, 20)); // 10, 20 - вернет 70
