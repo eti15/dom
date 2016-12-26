@@ -38,6 +38,6 @@ var Model = {
         return this.callApi('newsfeed.get', { filters: 'post', count: 20 });
     },
     getGroups: function() {
-        return this.callApi('groups.get', { fields: 'photo_50' });
+        return this.callApi('groups.get', { extended: 1, fields: 'photo_50' });
     }
 };
