@@ -75,11 +75,13 @@
 <script type="text/x-handlebars-template" id="groupsTemplate">
     <div class="groups">
         {{#each list}}
+        {{#if name}}
         <div class="post">
             <img src="{{photo_50}}" class="img-circle">
             {{name}}
         </div>
         <hr>
+        {{/if}}
         {{/each}}
     </div>
 </script>
