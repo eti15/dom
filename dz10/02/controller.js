@@ -20,7 +20,7 @@ var Controller = {
         });
     },
     photosRoute: function() {
-        return Model.getPhotos().then(function(groups) {
+        return Model.getPhotos().then(function(photos) {
             results.innerHTML = View.render('photos', {list: photos});
         });
     }
