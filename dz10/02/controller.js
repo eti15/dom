@@ -21,6 +21,10 @@ var Controller = {
     },
     photosRoute: function() {
         return Model.getPhotos().then(function(photos) {
+            for(let a=1; a<photos.length; a++){
+                photos[a].comments = Model.getPhotoComm(photos[a].pid);
+                //console.log(photos[a].comments);
+            }
             results.innerHTML = View.render('photos', {list: photos});
         });
     }

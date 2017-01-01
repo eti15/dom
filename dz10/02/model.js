@@ -41,6 +41,9 @@ var Model = {
         return this.callApi('groups.get', { extended: 1, fields: 'photo_50' });
     },
     getPhotos: function() {
-        return this.callApi('photos.getAll', { extended: 1 });  
+        return this.callApi('photos.getAll', { count: 200, extended: 1 });  
+    },
+    getPhotoComm: function(pid) {
+        return this.callApi('photos.getComments', { photo_id: pid});  
     }
 };
