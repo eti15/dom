@@ -12,6 +12,10 @@
             float: left;
             margin: 15px;
         }
+        .photo {
+            width: 130px;
+            height: 170px;
+        }
     </style>
 </head>
 <body>
@@ -90,10 +94,12 @@
 <script type="text/x-handlebars-template" id="photosTemplate">
     <div id="photos">
         {{#each list}}
-        <div class="friend text-center">
-            <img src="{{photo_130}}" class="img-circle">
-            <div>ID: {{id}},<br>лайки: {{likes}},<br>репосты: {{reposts}}</div>
+        {{#if src}}
+        <div class="friend photo text-center">
+            <img src="{{src}}" class="img-circle">
+            <div>лайки: {{likes.count}},<br>репосты: {{reposts.count}}</div>
         </div>
+        {{/if}}
         {{/each}}
     </div>
 </script>
