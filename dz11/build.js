@@ -46,6 +46,11 @@ new Promise(function(resolve) {
     return Model.getUser().then(function(users) {
         header.innerHTML = View.render('header', users[0]);
     });
+}).then(function(e) {
+    document.addEventListener('click', e => {
+        var route = e.target.dataset.route;
+        if(route) Router.handle(route);
+    });
 }).catch(function(e) {
     console.error(e);
     alert('Ошибка: ' + e.message);
