@@ -1,4 +1,5 @@
-var View = {
+//var View
+module.exports = {
     render: function(templateName, model) {
         templateName = templateName + 'Template';
 

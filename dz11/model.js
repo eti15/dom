@@ -1,4 +1,5 @@
-var Model = {
+//var Model
+module.exports = {
     login: function(appId, perms) {
         return new Promise(function(resolve, reject) {
             VK.init({

@@ -1,4 +1,5 @@
-var Controller = {
+//var Controller
+module.exports = {
     musicRoute: function() {
         return Model.getMusic().then(function(music) {
             results.innerHTML = View.render('music', {list: music});
