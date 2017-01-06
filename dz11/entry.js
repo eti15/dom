@@ -1,8 +1,8 @@
-var Controller = require('./controller.js'),
-    Router = require('./router.js'),
+var Router = require('./router.js'),
     Model = require('./model.js'),
     View = require('./view.js');
 
+// Entry
 Handlebars.registerHelper('formatTime', function(time) {
     var minutes = parseInt(time / 60),
         seconds = time - minutes * 60;

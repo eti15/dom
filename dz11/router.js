@@ -1,3 +1,5 @@
+var Controller = require('./controller.js');
+
 //var Router
 module.exports = {
     handle: function(route) {

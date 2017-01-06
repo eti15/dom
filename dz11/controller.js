@@ -1,3 +1,6 @@
+var Model = require('./model.js'),
+    View = require('./view.js');
+
 //var Controller
 module.exports = {
     musicRoute: function() {

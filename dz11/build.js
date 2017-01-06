@@ -1,4 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var Model = require('./model.js'),
+    View = require('./view.js');
+
 //var Controller
 module.exports = {
     musicRoute: function() {
@@ -18,12 +21,12 @@ module.exports = {
     }
 };
 
-},{}],2:[function(require,module,exports){
-var Controller = require('./controller.js'),
-    Router = require('./router.js'),
+},{"./model.js":3,"./view.js":5}],2:[function(require,module,exports){
+var Router = require('./router.js'),
     Model = require('./model.js'),
     View = require('./view.js');
 
+// Entry
 Handlebars.registerHelper('formatTime', function(time) {
     var minutes = parseInt(time / 60),
         seconds = time - minutes * 60;
@@ -56,7 +59,7 @@ new Promise(function(resolve) {
     alert('Ошибка: ' + e.message);
 });
 
-},{"./controller.js":1,"./model.js":3,"./router.js":4,"./view.js":5}],3:[function(require,module,exports){
+},{"./model.js":3,"./router.js":4,"./view.js":5}],3:[function(require,module,exports){
 //var Model
 module.exports = {
     login: function(appId, perms) {
@@ -100,6 +103,8 @@ module.exports = {
 };
 
 },{}],4:[function(require,module,exports){
+var Controller = require('./controller.js');
+
 //var Router
 module.exports = {
     handle: function(route) {
@@ -109,7 +114,7 @@ module.exports = {
     }
 };
 
-},{}],5:[function(require,module,exports){
+},{"./controller.js":1}],5:[function(require,module,exports){
 //var View
 module.exports = {
     render: function(templateName, model) {
